@@ -2,7 +2,6 @@
   <% for post in @posts %>
     <li>
       <%= image_tag post.attachment.thumb.url %>
-      <%= post.filename %>
     </li>
   <% end %>
 </ul>

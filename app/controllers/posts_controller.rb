@@ -18,8 +18,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
       
     if @post.save
-      # Full path to file is stored in @post.attachment.current_path
-      # TODO: Here will be code for thumbnail generation
+      
 
       redirect_to posts_path, notice: "The post #{@post.filename} has been uploaded."
     else
