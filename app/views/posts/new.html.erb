@@ -1,0 +1,17 @@
+<% if current_user.admin? %>
+  <%= form_for(@post, :html => {:multipart => true}, :url => :posts) do |f| %>
+    <div class="field">
+      <%= f.label :data %>
+      <%= f.file_field :data %>
+    </div>
+    <div class="field">
+      <%= f.label :comment %>
+      <%= f.text_area :comment %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Upload" %>
+    </div>
+  <% end %>
+<% else %>
+  You are not allowed to post here.
+<% end %>
