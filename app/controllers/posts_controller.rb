@@ -19,8 +19,7 @@ class PostsController < ApplicationController
       
     if @post.save
       
-
-      redirect_to posts_path, notice: "The post #{@post.filename} has been uploaded."
+      redirect_to posts_path, notice: "The post #{@post.id} has been uploaded."
     else
       render "new"
     end

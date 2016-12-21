@@ -1,7 +1,11 @@
 class AttachmentUploader < CarrierWave::Uploader::Base
+  include PostsHelper
+
   include CarrierWave::MiniMagick
   storage :file
   
+  process :store_dimensions
+
   version :thumb do
     process :resize_to_fit => [200,200]
     process :convert => 'jpg'
@@ -36,5 +40,13 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   def secure_token
     var = :"@#{mounted_as}_secure_token"
     model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+  end
+
+  private
+  def store_dimensions
+    if file && model
+      model.mime = mime_to_int(file.content_type)
+      model.width, model.height = `identify -format "%wx%h" #{file.path}`.split(/x/)
+    end
   end
 end
