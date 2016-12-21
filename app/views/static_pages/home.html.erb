@@ -1,2 +1,10 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<% if user_signed_in? %>
+  <li>
+  	Welcome, <%= current_user.email %><%= current_user.admin? ? '-sama' : '-chan' %>!<br />
+  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login', new_user_session_path)  %>  
+  </li>
+<% end %>
