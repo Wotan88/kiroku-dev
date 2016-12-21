@@ -1,8 +1,7 @@
 <ul>
   <% for post in @posts %>
     <li>
-      <%= image_tag attachment_post_url(post) %>
-      Thumbnail here<br />
+      <%= image_tag post.attachment.thumb.url %>
       <%= post.filename %>
     </li>
   <% end %>
