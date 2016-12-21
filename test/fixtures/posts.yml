@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  filename: MyString
+  attachment: 
+  mime: 1
+  comment: MyString
+
+two:
+  filename: MyString
+  attachment: 
+  mime: 1
+  comment: MyString
