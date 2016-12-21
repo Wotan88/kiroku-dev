@@ -21,6 +21,10 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+  host: localhost
+  username: pguser
+  password: kiroku1234dev
+
 development:
   <<: *default
   database: kiroku-dev_development
@@ -80,6 +84,6 @@ test:
 #
 production:
   <<: *default
-  database: kiroku-dev_production
+  database: kiroku_production
   username: kiroku-dev
   password: <%= ENV['KIROKU-DEV_DATABASE_PASSWORD'] %>
