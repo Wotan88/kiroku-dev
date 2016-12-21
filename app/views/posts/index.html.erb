@@ -1,0 +1,10 @@
+<ul>
+  <% for post in @posts %>
+    <li>
+      Thumbnail here<br />
+      <%= post.filename %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate @posts %>
