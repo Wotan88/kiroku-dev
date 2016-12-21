@@ -12,4 +12,8 @@ class AttachmentUploader < CarrierWave::Uploader::Base
   def extension_white_list
     %w(jpeg jpg png)
   end
+
+  def content_type_whitelist
+    [/image\//]
+  end
 end

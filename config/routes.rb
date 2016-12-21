@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :posts do
-    get '/attachment', to: 'posts#serve', on: :member
-  end
+  get '/i/:id', to: 'posts#serve', constraints: { id: /[a-f\-0-9]+(.jpeg|.jpg|.png)/ }
+  resources :posts
 end

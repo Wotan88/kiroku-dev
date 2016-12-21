@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  I_PATH = File.join(Rails.root, "public", "i")
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -27,7 +28,13 @@ class PostsController < ApplicationController
   end
 
   def serve
-    @post = Post.find(params[:id])
+    fp = File.join(I_PATH, params[:id])
+    puts fp
+    if File.exists? fp
+      send_file fp
+    else
+      raise ActionController::RoutingError.new('Not Found')
+    end
   end
 
   private
