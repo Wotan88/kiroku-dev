@@ -19,7 +19,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    ps = post_params
+    ps[:tags] = ps[:tags].split.to_json
+    @post = Post.new(ps)
       
     if @post.save
       
@@ -51,6 +53,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:comment, :attachment)
+    params.require(:post).permit(:comment, :attachment, :tags)
   end
 end
