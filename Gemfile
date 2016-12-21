@@ -32,9 +32,14 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# For authorization
 gem 'devise'
 
+# For pagination
 gem 'will_paginate'
+
+# For file uploads
+gem 'carrierwave'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

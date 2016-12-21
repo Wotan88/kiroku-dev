@@ -14,25 +14,25 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params) do |t|
-      if params[:post][:data]
-        t.attachment = params[:post][:data].read
-        t.filename = params[:post][:data].original_filename
-        # TODO
-        t.mime = 1
-      end
-    end
-
+    @post = Post.new(post_params)
+      
     if @post.save
-      redirect_to(@post, :notice => 'Post was created')
+      # Full path to file is stored in @post.attachment.current_path
+      # TODO: Here will be code for thumbnail generation
+
+      redirect_to posts_path, notice: "The post #{@post.filename} has been uploaded."
     else
-      render :action => "new"
+      render "new"
     end
+  end
+
+  def serve
+    @post = Post.find(params[:id])
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:comment, :post)
+    params.require(:post).permit(:comment, :attachment)
   end
 end

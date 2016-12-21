@@ -1,8 +1,8 @@
 <% if current_user.admin? %>
   <%= form_for(@post, :html => {:multipart => true}, :url => :posts) do |f| %>
     <div class="field">
-      <%= f.label :data %>
-      <%= f.file_field :data %>
+      <%= f.label :attachment %>
+      <%= f.file_field :attachment %>
     </div>
     <div class="field">
       <%= f.label :comment %>
