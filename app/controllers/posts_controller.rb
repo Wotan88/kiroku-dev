@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 5)
+    @posts = Post.paginate(:page => params[:page]).order('id desc')
 
     if request.xhr?
       render :partial => "post"
