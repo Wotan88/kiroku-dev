@@ -3,7 +3,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @posts = Post.paginate(:page => params[:page], :per_page => 30)
+    @posts = Post.paginate(:page => params[:page], :per_page => 5)
+
+    if request.xhr?
+      render :partial => "post"
+    end
   end
 
   def show
@@ -19,10 +23,19 @@ class PostsController < ApplicationController
       
     if @post.save
       
-      redirect_to posts_path, notice: "The post #{@post.id} has been uploaded."
+      redirect_to new_post_path, notice: "The post #{@post.id} has been uploaded."
     else
       render "new"
     end
+  end
+
+  def destroy
+    if current_user.admin?
+      @post = Post.find(params[:id])
+      @post.destroy
+    end
+
+    redirect_to posts_path
   end
 
   def serve
