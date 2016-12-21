@@ -41,6 +41,9 @@ gem 'will_paginate'
 # For file uploads
 gem 'carrierwave'
 
+# For thumbnailing
+gem 'mini_magick'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
