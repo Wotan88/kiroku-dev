@@ -15,3 +15,28 @@
 .login-form {
   padding: 8px 16px 8px 16px;
 }
+
+.autocomplete-items {
+  list-style: none;
+  width: 100%;
+  margin-top: 0px;
+  margin-left: 0px;
+  padding-left: 0px;
+  background-color: rgba(88, 88, 88, 0.85);
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+}
+.autocomplete-items li {
+  list-style-type: none;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 0px;
+  width: 100%;
+  float: left;
+  margin: 0px;
+}
+.autocomplete-items li:hover {
+  background: #4DD0E1;
+  cursor:pointer;
+}

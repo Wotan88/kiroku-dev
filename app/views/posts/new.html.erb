@@ -6,11 +6,15 @@
     </div>
     <div class="field">
       <%= f.label :tags %>
-      <%= f.text_field :tags %>
+      <div class="autocomplete-container">
+        <%= f.text_field :tags, autocomplete: 'off', placeholder: 'Enter tags...', id: 'autocomplete-field', class: 'form-control', tabindex: -1 %>
+        <ul class="autocomplete-items" id="autocomplete-items" style="display: none;">
+        </ul>
+      </div>
     </div>
     <div class="field">
       <%= f.label :comment %>
-      <%= f.text_area :comment %>
+      <%= f.text_area :comment, class: 'form-control' %>
     </div>
     <div class="actions">
       <%= f.submit "Upload" %>

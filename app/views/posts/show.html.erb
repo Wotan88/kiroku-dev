@@ -2,7 +2,7 @@
             data: {:confirm => 'Are you sure?'}, :method => :delete %>
 <p>
   <% for tag in JSON.parse(@post.tags) %>
-    <a href="/tags/<%= tag %>"><%= tag %></a>
+    <a href="/search?term=<%= tag %>"><%= tag %></a>
   <% end %>
 </p>
 <p>

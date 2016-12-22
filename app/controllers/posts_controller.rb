@@ -26,6 +26,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to new_post_path, notice: "The post #{@post.id} has been uploaded."
     else
+      @post.tags = ''
       render "new"
     end
   end
