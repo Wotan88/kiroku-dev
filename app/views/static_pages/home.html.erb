@@ -8,10 +8,10 @@
 
       <div id="home_navigation">
         <ul class="list-inline">
-          <li><a href="/posts">RECENT</a></li>
+          <li><%= link_to 'RECENT', posts_url %></li>
           <li>LINK2</li>
           <li>LINK3</li>
-          <li><a href="/posts/new">UPLOAD</a></li>
+          <li><%= link_to 'UPLOAD', new_post_url %></li>
           <% if user_signed_in? %>
             <li>
               Welcome, <%= current_user.email %><%= current_user.admin? ? '-sama' : '-chan' %>! 
@@ -25,7 +25,7 @@
         </ul>
       </div>
 
-      <form id="search-form" action="/search" method="get">
+      <form id="search-form" action="<%= search_url %>" method="get">
         <div class="autocomplete-search">
           <input name="term" id="autocomplete-field" class="form-control" tabindex="-1" placeholder="Search..."/>
         </div>
