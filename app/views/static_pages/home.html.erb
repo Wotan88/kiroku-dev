@@ -1,10 +1,36 @@
-<% if user_signed_in? %>
-  <li>
-  	Welcome, <%= current_user.email %><%= current_user.admin? ? '-sama' : '-chan' %>!<br />
-  <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-  </li>
-<% else %>
-  <li>
-  <%= link_to('Login', new_user_session_path)  %>  
-  </li>
-<% end %>
+<div class="container">
+  <div class="row centered">
+    <div>
+        <img src="http://placehold.it/350x216" class="center-block img-responsive title-image">
+    </div>
+    <div>
+      <h1>Kiroku</h1>
+
+      <div id="home_navigation">
+        <ul class="list-inline">
+          <li><a href="/posts">RECENT</a></li>
+          <li>LINK2</li>
+          <li>LINK3</li>
+          <li>LINK4</li>
+          <% if user_signed_in? %>
+            <li>
+              Welcome, <%= current_user.email %><%= current_user.admin? ? '-sama' : '-chan' %>! 
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+            </li>
+          <% else %>
+            <li>
+            <%= link_to('Login', new_user_session_path)  %>  
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <!-- NYI -->
+      <form id="home_search_box">
+        <div>
+          <input id="search_field" class="form-control" tabindex="-1" placeholder="Search..."/>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
