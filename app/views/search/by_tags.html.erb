@@ -3,6 +3,7 @@
   <%= @term %>
 </div>
 
+<% if @posts %>
 <div id="posts">
   <%= render "post" %>
 </div>
@@ -10,3 +11,6 @@
 <div id="infinite-scrolling">
   <%= will_paginate(@posts) %>
 </div>
+<% else %>
+  Nothing found
+<% end %>

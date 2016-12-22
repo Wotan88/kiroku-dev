@@ -20,11 +20,10 @@ class PostsController < ApplicationController
 
   def create
     ps = post_params
-    ps[:tags] = ps[:tags].split.to_json
+    ps[:tags] = ps[:tags].split.uniq.to_json
     @post = Post.new(ps)
       
     if @post.save
-      
       redirect_to new_post_path, notice: "The post #{@post.id} has been uploaded."
     else
       render "new"

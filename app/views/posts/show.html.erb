@@ -1,6 +1,11 @@
 <%= link_to 'Destroy', post_path(@post),
             data: {:confirm => 'Are you sure?'}, :method => :delete %>
 <p>
-<%= "#{@post.width}x#{@post.height}" %>
+  <% for tag in JSON.parse(@post.tags) %>
+    <a href="/tags/<%= tag %>"><%= tag %></a>
+  <% end %>
+</p>
+<p>
+  <%= "#{@post.width}x#{@post.height}" %>
 </p>
 <%= image_tag @post.attachment.url %>
