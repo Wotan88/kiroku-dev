@@ -44,6 +44,9 @@ gem 'carrierwave'
 # For thumbnailing
 gem 'mini_magick'
 
+# For frontend
+gem 'bootstrap-sass'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
