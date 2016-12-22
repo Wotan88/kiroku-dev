@@ -1,6 +1,12 @@
 <div class="page-header">
   <h1>Posts</h1>
-  <%= @term %>
+  <form id="search-form" action="<%= search_url %>" method="get">
+    <div class="autocomplete-search">
+      <%= text_field_tag 'term', @term, id: 'autocomplete-field', class: 'form-control', tabindex: -1, placeholder: 'Search...' %>
+    </div>
+    <ul class="autocomplete-items" id="autocomplete-items" style="display: none;">
+    </ul>
+  </form>
 </div>
 
 <% if @posts %>
